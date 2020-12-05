@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import { Video } from 'expo-av';
 import styles from './styles';
 
-export default function Post() {
-  const [paused, setPaused] = useState(false);
+export default function Post({ post }) {
+  const [paused, setPaused] = useState(true);
   const onPlayPause = () => {
     setPaused(!paused);
   };
@@ -13,10 +17,11 @@ export default function Post() {
       <TouchableWithoutFeedback onPress={onPlayPause}>
         <Video
           source={{
-            uri: 'https://srv-store5.gofile.io/download/YWOIV8/vid%20(1).mp4',
+            uri: post.videoUri,
           }}
           // rate={1.0}
           // volume={1.0}
+          orientation='portrait'
           isMuted={true}
           resizeMode='cover'
           shouldPlay={paused}
@@ -24,6 +29,49 @@ export default function Post() {
           style={styles.backgroundVideo}
         />
       </TouchableWithoutFeedback>
+
+      <View style={styles.ui}>
+        <View style={styles.sideUi}>
+          <View style={styles.profilePicContainer}>
+            <Image
+              style={styles.profilePic}
+              source={{
+                uri: post.user.userImage,
+              }}
+            />
+          </View>
+          <View style={styles.iconsContainer}>
+            <AntDesign name='heart' size={40} color='white' />
+            <Text style={styles.statsLabel}>{post.likes}</Text>
+          </View>
+          <View style={styles.iconsContainer}>
+            <FontAwesome name='commenting' size={40} color='white' />
+            <Text style={styles.statsLabel}>{post.comments}</Text>
+          </View>
+          <View style={styles.iconsContainer}>
+            <Fontisto name='share-a' size={30} color='white' />
+            <Text style={styles.statsLabel}>{post.shares}</Text>
+          </View>
+        </View>
+
+        <View style={styles.bottomContainer}>
+          <View>
+            <Text style={styles.handle}>{post.user.username}</Text>
+            <Text style={styles.description}>{post.description}</Text>
+
+            <View style={styles.songRow}>
+              <Icon name='beamed-note' size={24} color='white' />
+              <Text style={styles.songName}>{post.songName}</Text>
+            </View>
+          </View>
+          <Image
+            style={styles.songImage}
+            source={{
+              uri: post.songImage,
+            }}
+          />
+        </View>
+      </View>
     </View>
   );
 }

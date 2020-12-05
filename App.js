@@ -10,11 +10,11 @@ function ExampleView(props) {
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* <ExampleView /> */}
       <Home />
       <StatusBar style='auto' />
-    </View>
+    </SafeAreaView>
   );
 }
 
