@@ -35,7 +35,7 @@ export default function Post(props) {
           source={{
             uri: post.videoUri,
           }}
-          // rate={1.0}
+          rate={1.0}
           // volume={1.0}
           orientation='portrait'
           isMuted={true}
@@ -59,17 +59,17 @@ export default function Post(props) {
           <TouchableOpacity style={styles.iconsContainer} onPress={onLikePress}>
             <AntDesign
               name='heart'
-              size={40}
+              size={30}
               color={isLiked ? 'red' : 'white'}
             />
             <Text style={styles.statsLabel}>{post.likes}</Text>
           </TouchableOpacity>
           <View style={styles.iconsContainer}>
-            <FontAwesome name='commenting' size={40} color='white' />
+            <FontAwesome name='commenting' size={30} color='white' />
             <Text style={styles.statsLabel}>{post.comments}</Text>
           </View>
           <View style={styles.iconsContainer}>
-            <Fontisto name='share-a' size={30} color='white' />
+            <Fontisto name='share-a' size={28} color='white' />
             <Text style={styles.statsLabel}>{post.shares}</Text>
           </View>
         </View>

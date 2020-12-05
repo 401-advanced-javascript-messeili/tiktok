@@ -1,28 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Home from './src/screens/home';
-
-function ExampleView(props) {
-  return <Icon name='ios-person' size={30} color='#4F8EF7' />;
-}
+import 'react-native-gesture-handler';
+import Navigation from './src/navigation';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <ExampleView /> */}
-      <Home />
-      <StatusBar style='auto' />
-    </SafeAreaView>
+    <>
+      <StatusBar Style='light-content' />
+      <SafeAreaView style={styles.container}>
+        <Navigation />
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'black',
   },
 });

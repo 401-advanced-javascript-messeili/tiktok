@@ -1,17 +1,18 @@
 import { StyleSheet, Dimensions } from 'react-native';
 const { height } = Dimensions.get('window');
 const me = Dimensions.get('screen');
+let bottombarHeight = Dimensions.get('window').height * 0.07;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: height,
+    height: height - bottombarHeight,
   },
   backgroundVideo: {
-    height: me.height,
+    height: '100%',
     width: '100%',
     position: 'absolute',
     right: 0,
-    top: 5,
+    top: 0,
     left: 0,
     bottom: 0,
   },
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 7,
+    marginBottom: 5,
   },
   songName: {
     color: '#fff',
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-    marginTop: 5,
+    marginTop: 3,
   },
   songImage: {
     width: 45,
@@ -75,6 +77,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderWidth: 2,
     borderColor: '#fff',
+    marginBottom: 5,
   },
   bottomContainer: {
     flexDirection: 'row',
