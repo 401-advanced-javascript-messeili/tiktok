@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Home from './src/screens/home';
+
+function ExampleView(props) {
+  return <Icon name='ios-person' size={30} color='#4F8EF7' />;
+}
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {/* <ExampleView /> */}
+      <Home />
+      <StatusBar style='auto' />
     </View>
   );
 }
