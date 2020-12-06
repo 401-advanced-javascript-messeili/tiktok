@@ -17,9 +17,7 @@ export default function Post(props) {
   const [paused, setPaused] = useState(true);
   const [post, setPost] = useState(props.post);
   const [isLiked, setIsliked] = useState(false);
-  console.log('====================================');
-  console.log(props.post);
-  console.log('====================================');
+
   const onPlayPause = () => {
     setPaused(!paused);
   };
@@ -52,7 +50,7 @@ export default function Post(props) {
             <Image
               style={styles.profilePic}
               source={{
-                uri: post.user.userImage,
+                uri: post.user.imageUri,
               }}
             />
           </View>
@@ -81,13 +79,13 @@ export default function Post(props) {
 
             <View style={styles.songRow}>
               <Icon name='beamed-note' size={24} color='white' />
-              <Text style={styles.songName}>{post.songName}</Text>
+              <Text style={styles.songName}>{post.song.name}</Text>
             </View>
           </View>
           <Image
             style={styles.songImage}
             source={{
-              uri: post.songImage,
+              uri: post.song.imageUri,
             }}
           />
         </View>
