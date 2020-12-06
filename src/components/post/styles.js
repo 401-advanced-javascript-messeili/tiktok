@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 const { height } = Dimensions.get('window');
 const me = Dimensions.get('screen');
-let bottombarHeight = Dimensions.get('window').height * 0.07;
+let bottombarHeight = Dimensions.get('window').height * 0.069;
 const styles = StyleSheet.create({
   container: {
     width: '100%',

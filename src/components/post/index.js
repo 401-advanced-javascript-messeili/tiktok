@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,20 +12,30 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import { Video } from 'expo-av';
 import styles from './styles';
+import { useIsFocused } from '@react-navigation/native';
+// const isFocused = useIsFocused();
 
 export default function Post(props) {
   const [paused, setPaused] = useState(true);
   const [post, setPost] = useState(props.post);
   const [isLiked, setIsliked] = useState(false);
+  const isFocused = useIsFocused();
 
   const onPlayPause = () => {
     setPaused(!paused);
   };
   let likesToAdd = isLiked ? -1 : 1;
   const onLikePress = () => {
-    setPost({ ...post, likes: post.likes + likesToAdd });
+    setPost({ ...post, likes: [post.likes[0] + likesToAdd] });
     setIsliked(!isLiked);
   };
+
+  useEffect(() => {
+    console.log('====================================');
+    console.log(isFocused);
+    console.log('====================================');
+  }, [isFocused]);
+
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={onPlayPause}>
@@ -60,15 +70,15 @@ export default function Post(props) {
               size={30}
               color={isLiked ? 'red' : 'white'}
             />
-            <Text style={styles.statsLabel}>{post.likes}</Text>
+            <Text style={styles.statsLabel}>{post.likes[0]}</Text>
           </TouchableOpacity>
           <View style={styles.iconsContainer}>
             <FontAwesome name='commenting' size={30} color='white' />
-            <Text style={styles.statsLabel}>{post.comments}</Text>
+            <Text style={styles.statsLabel}>{post.comments[0]}</Text>
           </View>
           <View style={styles.iconsContainer}>
             <Fontisto name='share-a' size={28} color='white' />
-            <Text style={styles.statsLabel}>{post.shares}</Text>
+            <Text style={styles.statsLabel}>{post.shares[0]}</Text>
           </View>
         </View>
 

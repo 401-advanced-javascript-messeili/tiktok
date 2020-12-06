@@ -5,7 +5,7 @@ import styles from './styles';
 import { API, graphqlOperation } from 'aws-amplify';
 
 import { listPosts } from '../../../graphql/queries';
-let bottombarHeight = Dimensions.get('window').height * 0.07;
+let bottombarHeight = Dimensions.get('window').height * 0.069;
 const Home = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
