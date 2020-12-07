@@ -34,9 +34,7 @@ export default function HomeBottomTabNavigator() {
       />
       <Tab.Screen
         name={'Search'}
-        component={() => {
-          return <Text>Search</Text>;
-        }}
+        component={Home}
         options={{
           tabBarIcon: ({ color }) => {
             return <AntDesign name={'search1'} size={25} color={color} />;

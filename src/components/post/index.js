@@ -19,7 +19,6 @@ export default function Post(props) {
   const [paused, setPaused] = useState(true);
   const [post, setPost] = useState(props.post);
   const [isLiked, setIsliked] = useState(false);
-  const isFocused = useIsFocused();
 
   const onPlayPause = () => {
     setPaused(!paused);
@@ -29,12 +28,6 @@ export default function Post(props) {
     setPost({ ...post, likes: [post.likes[0] + likesToAdd] });
     setIsliked(!isLiked);
   };
-
-  useEffect(() => {
-    console.log('====================================');
-    console.log(isFocused);
-    console.log('====================================');
-  }, [isFocused]);
 
   return (
     <View style={styles.container}>

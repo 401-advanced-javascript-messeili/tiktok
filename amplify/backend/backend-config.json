@@ -16,5 +16,13 @@
         }
       }
     }
+  },
+  "auth": {
+    "tiktok762f2663": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
   }
 }
